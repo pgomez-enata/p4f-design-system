@@ -78,6 +78,42 @@ PRAGMA = "prepublicar: ok"     # en la MISMA línea, y sólo si es un ejemplo o 
 LARGO_MINIMO_NOMBRE = 3
 
 
+# Nombres de carpeta demasiado corrientes para buscarlos: si el taller vive en `~/src`, buscar
+# «src» marcaría media base de código. La guarda es por genérico Y por longitud.
+GENERICOS = {"src", "code", "repos", "repo", "dev", "work", "proyectos", "projects",
+             "documents", "documentos", "desktop", "escritorio", "home", "github", "git",
+             "marca", "diseno", "design", "trabajo", "temp", "tmp", "downloads", "descargas"}
+LARGO_MINIMO_CARPETA = 8
+
+
+def carpeta_de_trabajo(raiz=None):
+    """El nombre de la carpeta que contiene al taller, DEDUCIDO — nunca escrito.
+
+    ⭐ ESTE ES EL ARREGLO DE UNA FUGA MEDIDA EN EL REPO YA PUBLICADO, el 17-ago-2026.
+
+    La regla que caza el nombre de la carpeta de trabajo lo llevaba escrito literal dentro de
+    su propio patrón. Y como el saneador del empaquetado reescribía ese literal —dejando la
+    regla convertida en algo que no cazaba nada, y `empaquetar.py` sin compilar—, le puse el
+    pragma para que lo respetara. Las dos cosas eran ciertas a la vez y se contradecían:
+
+    - **sin pragma**: la regla sale rota del empaquetado (una comprobación que desaparece);
+    - **con pragma**: el nombre de la carpeta de Piero viaja al repo público.
+
+    Lo encontró `escanear_fuera.py` sobre un clon del repo YA publicado, no esta puerta. Otra
+    vez. La puerta es el primer filtro; la verificación es de fuera.
+
+    La salida del dilema es que el literal no exista: el nombre de la carpeta de trabajo es un
+    dato del ENTORNO, no una constante del sistema. Aquí se deduce en tiempo de ejecución, así
+    que el patrón funciona igual en el taller y en cualquier clon, y no hay nada que publicar.
+    Devuelve `""` si el nombre es demasiado corriente o demasiado corto para buscarlo sin
+    llenar el informe de falsos positivos.
+    """
+    nombre = (Path(raiz).resolve() if raiz else RAIZ).parent.parent.name
+    if len(nombre) < LARGO_MINIMO_CARPETA or nombre.lower() in GENERICOS:
+        return ""
+    return nombre
+
+
 def _tokens(carpeta=None):
     f = Path(carpeta or RAIZ) / "tokens" / "tokens.json"
     return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
@@ -151,14 +187,18 @@ def reglas(carpeta=None, nombres=None):
         ("ruta-de-maquina", re.compile(r"/Users/[\w.-]+|/home/[\w.-]+|[A-Z]:\\\\Users|"
                                        r"~/(?:Downloads|Desktop|Documents|Escritorio|Descargas)"),
          "Describe el disco de alguien. A nadie más le sirve."),
-        # `(la carpeta de trabajo)` es el nombre de la carpeta de trabajo, con su errata incluida.
-        # Va aparte porque NO empieza por `/Users/` ni por `~/`: en el repo hermano dos
-        # literales así se quedaron dentro justo por eso, declarados como residuo.
-        # ⚠️ El pragma es OBLIGATORIO aquí: sin él, el saneador del empaquetado reescribe el
-        # nombre dentro de esta misma línea y en el repo publicado la regla queda convertida
-        # en `r"(la carpeta de trabajo) experiences"`, que no caza nada. Medido desde un clon.
-        ("carpeta-de-trabajo", re.compile(r"claude expririences|claude experiences"),   # prepublicar: ok
-         "El nombre de la carpeta de trabajo de una máquina concreta."),
+    ]
+    # La carpeta de trabajo va en regla aparte porque NO empieza por `/Users/` ni por `~/`: en
+    # el sistema hermano dos literales así se quedaron dentro justo por eso.
+    #
+    # ⚠️ Y el nombre NO se escribe: se deduce. Ver `carpeta_de_trabajo()` para lo que costó
+    # descubrirlo — con el literal dentro del patrón, o la regla salía rota del empaquetado o
+    # el nombre viajaba al repo público, y las dos cosas llegaron a pasar.
+    cdt = carpeta_de_trabajo()
+    if cdt:
+        r.append(("carpeta-de-trabajo", re.compile(re.escape(cdt), re.I),
+                  "El nombre de la carpeta de trabajo de una máquina concreta."))
+    r += [
         ("credencial", re.compile(r"sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{20,}|gho_[A-Za-z0-9]{20,}|"
                                   r"AKIA[0-9A-Z]{16}|"
                                   r"(?:api[_-]?key|token|password|passwd|secret|bearer)"
@@ -397,7 +437,11 @@ def autoprueba():
         ("rnc",                "Responsable: RNC 401999999"),   # prepublicar: ok
         ("ruta-de-maquina",    'FUENTE = "/Users/alguien/Downloads/logo.ai"'),   # prepublicar: ok
         ("ruta-de-maquina",    '"vector oficial. ~/Downloads/Organizado/logos/"'),   # prepublicar: ok
-        ("carpeta-de-trabajo", 'ruta = "Desktop/claude expririences/04 Marca"'),   # prepublicar: ok
+        # ⚠️ El fixture se CONSTRUYE con el nombre deducido, no se escribe. Escribirlo aquí
+        # publicaba el nombre de la carpeta de Piero dentro de la prueba que existe para
+        # impedirlo — la misma lección que «una prueba con un dato real es una fuga con
+        # coartada», esta vez sobre el propio arreglo.
+        ("carpeta-de-trabajo", f'ruta = "Desktop/{carpeta_de_trabajo() or "sin-nombre"}/04 Marca"'),
         ("credencial",         'api_key = "abcd1234efgh5678"'),   # prepublicar: ok
         ("persona",            "| 01 | Panel | Fulanita · Menganito |"),
     ]

@@ -128,13 +128,22 @@ def copiar(destino):
 
 RX_RUTA = re.compile(r"~?/(?:Users/[\w.-]+|Downloads|Desktop|Documents|Escritorio|Descargas)"
                      r"[^\s\"'`,;)]*")
-# ⚠️ EL PRAGMA NO ES DECORATIVO EN ESTA LÍNEA. Sin él, el saneador reescribe el nombre dentro
-# de su propio patrón y el `empaquetar.py` del paquete sale SIN COMPILAR
-# (`EOL while scanning string literal`). Lo mismo le pasaba a la regla `carpeta-de-trabajo` de
-# `prepublicar.py`, que en el repo publicado quedaba convertida en `r"(la carpeta de trabajo)
-# experiences"` y dejaba de cazar nada. Un saneador que se come la declaración de sus propias
-# reglas publica un sistema que parece entero y no lo está.
-RX_CARPETA = re.compile(r"[^\s\"'`,;)]*claude expririences[^\s\"'`,;)]*")   # prepublicar: ok
+# ⚠️ EL NOMBRE DE LA CARPETA NO SE ESCRIBE AQUÍ, y la historia de por qué merece las 6 líneas.
+#
+# Estaba escrito literal dentro de este patrón, y el saneador lo reescribía a sí mismo: el
+# `empaquetar.py` del paquete salía SIN COMPILAR (`EOL while scanning string literal`) y la
+# regla `carpeta-de-trabajo` de `prepublicar.py` quedaba convertida en algo que no cazaba nada.
+# Le puse el pragma para que el saneo respetara la línea… y entonces el nombre de la carpeta de
+# Piero viajó al repo público. Lo cazó `escanear_fuera.py` sobre el repo YA PUBLICADO, no la
+# puerta. Con el literal dentro, las dos salidas eran malas.
+#
+# Se deduce del entorno, con una sola declaración compartida (`prepublicar.carpeta_de_trabajo`)
+# porque dos copias del mismo criterio comparten su punto ciego y entonces no son dos capas.
+sys.path.insert(0, str(RAIZ))
+import prepublicar                                                            # noqa: E402
+_CDT = prepublicar.carpeta_de_trabajo()
+RX_CARPETA = re.compile(r"[^\s\"'`,;)]*" + re.escape(_CDT) + r"[^\s\"'`,;)]*") if _CDT \
+    else re.compile(r"(?!x)x")     # patrón que no casa nunca: no hay nombre que buscar
 
 
 def sanear(destino):
@@ -522,6 +531,19 @@ def puerta(destino):
         raise SystemExit("\n✗ NO se publica. La puerta encontró algo que no debe salir.\n"
                          "  Arréglalo en el taller (o añade el puntero a "
                          "`tokens.meta.privado`) y vuelve a empaquetar.\n")
+
+    # ── y el escáner de FUERA, aquí mismo, sobre el paquete.
+    # ⚠️ No sustituye al que se corre sobre el clon de GitHub: ése lee lo que el servidor
+    # devuelve de verdad, y es el único que ha encontrado algo dos veces. Pero pasarlo aquí es
+    # gratis y habría cazado antes de publicar el nombre de la carpeta de trabajo que se coló
+    # el 17-ago-2026 dentro de los patrones a los que yo mismo había puesto el pragma.
+    titulo("y el escáner de fuera, sobre el paquete")
+    r = subprocess.run([sys.executable, str(RAIZ / "escanear_fuera.py"), str(destino)],
+                       capture_output=True, text=True)
+    print(r.stdout[-2500:], end="")
+    if r.returncode != 0:
+        raise SystemExit("\n✗ NO se publica: el escáner independiente encontró algo que la "
+                         "puerta no vio.\n")
     return True
 
 
