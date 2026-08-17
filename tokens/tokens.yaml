@@ -1,0 +1,1163 @@
+# GENERADO por build.py desde tokens/tokens.json — NO EDITAR A MANO
+meta:
+  marca: "Pitch 4 Fun"
+  version: "1.0.0"
+  actualizado: "2026-08-15"
+  descripcion: "FUENTE DE VERDAD del sistema de diseño Pitch 4 Fun. Todo lo demás (CSS, YAML, Python, plantillas) se GENERA desde aquí con `python3 build.py`. No edites los generados: edita este y vuelve a correr el build."
+  organizadores: "Fundación Enlata + IAvanza (HUB de Innovación)"
+  cadencia: "2 ediciones al año. El sistema se construye para CUALQUIER edición: lo que cambia va en `edicion`, no horneado en las plantillas."
+  fuentes_de_verdad:
+    - "_fuente/hoja-de-marca-disenador.pdf — vector oficial de la marca (22-mar-2026). Declara y contiene los 3 colores y la tipografía Obvia. Rescatado de `02_P4F_Marketing-20260709T215816Z-2-001.zip` → `web/pitch 4 fun/logo pitch for fun .pdf`. Original en (fuera del repo) Pitch4Fun/"
+    - "logo/ — 10 SVG extraídos de ese PDF y verificados a 0.00–0.26 % de diferencia fuera de bordes contra el original"
+  privado:
+    _nota: "Lo que NO sale del taller a un repo público, con su motivo al lado. Añadir un puntero aquí es lo único que hace falta para que un dato nuevo deje de salir. Lo aplica `empaquetar.py` y lo comprueba `prepublicar.py`."
+    punteros:
+      - "meta.fuentes_de_verdad — lleva la ruta del disco de Piero (`(fuera del repo)`). En el paquete se sanea a «(fuera del repo)»."
+      - "_derivados/ y _salida/ — carpetas de trabajo. Se regeneran corriendo el sistema."
+      - "_fuente/referencia-revista/ — los dos collages del evento con 73 caras de personas reales, y los 12 recortes que salen de ellos. NO viajan, y la maqueta se publica regenerada con `prototipo.py sin-fotos` porque las fotos van HORNEADAS dentro de sus PNG."
+      - "PLAN.html — el cuaderno de trabajo del sistema, con rutas y notas internas."
+      - "meta.privado.rnc_organizador — identidad fiscal. Estaba escrito literal dentro de `auditoria.py` y lo paró la puerta el 17-ago-2026. Al vaciarlo, la regla `rnc-correcto` del frente 3 NO calla: emite un hallazgo diciendo que no se pudo comprobar. Quien clone el repo pone el suyo aquí y la regla vuelve sola."
+    rnc_organizador: ""
+    personas_a_proteger: []
+    _personas_motivo: "VACÍA Y DECLARADA, no vacía por accidente: son cosas distintas y `prepublicar.py` las distingue (en el sistema hermano una lista vacía por accidente apagó la regla y publicó 5 nombres reales con el escáner en verde). En P4F no hay ninguna persona real en los tokens: `organizadores` son dos organizaciones, `proyectos.edicion_1` son marcas de proyecto que se presentaron en un evento público, y las 6 personas del prototipo están inventadas y marcadas con asterisco en la propia página. Si algún día entra una persona real —un jurado, un mentor, un testimonio—, su nombre va aquí ANTES de que entre en ninguna pieza."
+    nombres_permitidos:
+      - "Piero"
+      - "Piero Gómez"
+    _nombres_permitidos_motivo: "El autor del sistema. Aparece porque es quien decide y quien publica, y las decisiones cerradas se le atribuyen por nombre: quitarlo dejaría el histórico sin autor. Declarado aquí para que no parezca una excepción escondida."
+  decisiones_cerradas:
+    - "PALETA — cerrado por Piero el 15-ago-2026: manda la hoja del diseñador (#0595F0 · #83CE00 · #121D30), que es lo que está DENTRO del logo. La `Pitch4Fun_LineaGrafica_v1/v2.pdf` (27-feb-2026) declaraba #C5F97E y #111827; esos valores quedan RETIRADOS. Ver `color.retirados`."
+    - "TIPOGRAFÍA — cerrado por Piero el 15-ago-2026: Obvia es comercial y no está instalada. El logo se congela en curvas (ya no la necesita) y las piezas usan una sustituta libre elegida MIDIENDO. Ganó Saira (SIL OFL) con distancia 0.567 sobre 7 métricas; Poppins (1.337) y Archivo (1.367) quedaron lejos por anchas."
+    - "ARQUITECTURA — cerrado por Piero el 15-ago-2026: sistema PROPIO con la receta de iavanza_design_system, no submarca dentro de él. P4F tiene marca propia."
+    - "HOJA — cerrado por Piero el 15-ago-2026: 8.5 × 11 pulgadas (612 × 792 pt). NO A4."
+    - "ALCANCE — cerrado por Piero el 15-ago-2026: editorial (revista + hojas internas), redes, streaming y patrocinadores. NO entra la plantilla de deck 10×30s de pitchers."
+    - "LA WEB NO ES FUENTE — cerrado por Piero el 15-ago-2026: el sitio está desactualizado y se reconstruye ENTERO después de terminar el sistema. Su `styles.css` y su `logo.svg` (una reconstrucción con Impact y paths inventados) no entran en el sistema."
+    - "FORMATO DEL PITCH — cerrado por Piero el 15-ago-2026: 8 proyectos de 3 minutos. La primera edición fueron 5 minutos. Ni «3+3» ni «10×30 s»: las dos guías anteriores estaban mal."
+    - "NOMBRES DE PROYECTO — cerrado por Piero el 15-ago-2026: Muuving · Vixual · Eco Ernesto Visita · MelizAI. Ver `proyectos`."
+    - "CIFRAS — confirmadas por Piero el 15-ago-2026: las de la revista de referencia son buenas y se pueden imprimir. Ver `metricas`, que guarda de dónde vienen."
+    - "CO-MARCA — cerrado por Piero el 15-ago-2026: los tres logos no van siempre juntos; a los ejecutores se los nombra como Fundación Enlata e IAvanza. Ver `organizadores.regla`."
+    - "TIPOGRAFÍA INSTALADA — Piero pidió instalar Saira el 15-ago-2026: las 12 caras están en ~/Library/Fonts y el sistema las registra. Desbloquea la salida vectorial."
+    - "FONDO — cerrado por Piero el 16-ago-2026: manda #000714, el de las 8 páginas de la revista de referencia. #0A1628 (lo que declaraba el sistema) y #121D2F (el de los 7 assets sueltos) quedan RETIRADOS como fondos. Es el mejor de los tres en contraste (blanco 20.18 · verde 10.37 · azul 6.31)."
+    - "SUPERFICIE CLARA — cerrado por Piero el 16-ago-2026: #E6F7FE entra como superficie DECORATIVA, no como tema de color. Ahí el texto va siempre en ink; azul y verde solo pueden ser forma, porque como tinta dan 2.91 y 1.77."
+    - "AZUL PROFUNDO — cerrado por Piero el 16-ago-2026: #063780 entra como superficie secundaria y fondo de rayo. Estaba en las 8 páginas y en 5 de los 7 assets sin estar declarado en ningún sitio."
+    - "COLORES DE APOYO — cerrado por Piero el 16-ago-2026: los tres de la guía v2 (#256A8C, #44B4B8, #F97316) se RETIRAN en firme. Llevaban desde el paso 1 sin rol; el naranja no tiene un solo píxel en las 15 referencias. La paleta queda en 4 colores con función y 3 superficies, cero decorativos."
+    - "EXPANSIÓN — cerrado por Piero el 16-ago-2026: el sistema crece en 4 tandas — superficies y color · iconografía · componentes de contenido · gráficos y normalización de la cabecera de sección."
+  decisiones_pendientes:
+    - "ITÁLICA: el sistema usa la itálica REAL de Saira (dibujada, ángulo −12° correcto) aunque la romana inclinada por software quede métricamente más cerca del logo (0.567 vs 1.745). Decisión mía, no de Piero. Se revierte cambiando `tipografia.italica.modo` a `oblicua`."
+    - "OFF-WHITE: el diseñador no declaró ninguno. El sistema usa blanco puro (que sí está en el logo) y deriva sus grises del ink. Si Piero quiere un hueso de fondo, `neutros.hueso` ya está calculado."
+color:
+  _nota: "Los 3 primitivos salen medidos del content stream del vector, no de una guía escrita ni de un PNG. Los neutros se derivan del ink en HSV para que toda la escala comparte el mismo matiz (h=218°)."
+  primitivos:
+    azul:
+      hex: "#0595F0"
+      origen: "hoja del diseñador, declarado en texto y medido en el vector (`0.02 0.584 0.941 rg`) y en los píxeles opacos de los PNG. Los tres coinciden."
+      rol: "EL COLOR DE LA MARCA. El micrófono y el cuerpo del «4»."
+    verde:
+      hex: "#83CE00"
+      origen: "hoja del diseñador, declarado y medido. Vive en los stops del degradado del rayo."
+      rol: "ACENTO Y ENERGÍA. El rayo, el tagline, los CTA. Nunca es color de fondo de una pieza entera."
+    ink:
+      hex: "#121D30"
+      origen: "hoja del diseñador, declarado y medido en el vector (`0.071 0.114 0.188 rg`), que es el fondo de su banda oscura."
+      rol: "FONDO PRINCIPAL y color de texto sobre claro."
+    blanco:
+      hex: "#FFFFFF"
+      origen: "el wordmark del lockup sobre fondo oscuro"
+      rol: "texto sobre ink, y fondo de las piezas claras"
+  neutros:
+    _nota: "Derivados del ink en HSV (h=218°, s=0.625) bajando saturación al subir luminosidad. Cada hex lleva su contraste medido sobre blanco."
+    ink-2:
+      hex: "#182438"
+      contraste_sobre_blanco: 15.58
+      rol: "superficie elevada sobre ink"
+    ink-3:
+      hex: "#2B3B57"
+      contraste_sobre_blanco: 11.25
+      rol: "tarjetas y bloques sobre ink"
+    gris-texto:
+      hex: "#5A6985"
+      contraste_sobre_blanco: 5.53
+      rol: "texto secundario sobre claro — pasa AA"
+    gris-borde:
+      hex: "#ACB6C7"
+      contraste_sobre_blanco: 2.04
+      rol: "bordes y separadores. NUNCA texto sobre claro"
+    gris-velo:
+      hex: "#E1E6F0"
+      contraste_sobre_blanco: 1.25
+      rol: "superficie de reposo, fondos de tabla"
+    hueso:
+      hex: "#EFF3F9"
+      contraste_sobre_blanco: 1.11
+      rol: "fondo de página alternativo. Sin uso hasta que Piero lo pida"
+  superficies:
+    _nota: "Un color de SUPERFICIE no es un color de tinta. Salen medidos de las 15 referencias que entregó Piero el 15-ago-2026 (8 páginas de revista + 7 assets), no de una guía escrita. Cada superficie clasifica LOS 10 COLORES del sistema en tres listas exhaustivas, y `build.py doctor` las recalcula una por una: declarar una tinta permitida que no llega a 4.5 es un fallo, y declarar prohibida una que sí se lee, también."
+    _umbral_listas: "tinta_permitida ≥ 4.5 · tinta_solo_grande 3.0–4.5 · tinta_prohibida < 3.0. Las superficies no se clasifican entre ellas: una superficie no es una tinta."
+    fondo:
+      hex: "#000714"
+      origen: "color dominante de las 8 páginas de la revista de referencia. Medido sobre la miniatura de cada página: aparece en las 8."
+      rol: "EL FONDO de toda pieza oscura del sistema. Sustituye a #0A1628 por decisión de Piero (16-ago-2026)."
+      tinta_permitida:
+        - "blanco"
+        - "verde"
+        - "azul"
+        - "gris-borde"
+        - "gris-velo"
+        - "hueso"
+      tinta_solo_grande:
+        - "gris-texto"
+      tinta_prohibida:
+        - "ink"
+        - "ink-2"
+        - "ink-3"
+    azul-profundo:
+      hex: "#063780"
+      origen: "familia de tono 210–225° presente en las 8 páginas y en 5 de los 7 assets, siempre como el rayo o el degradado del fondo. Media de los píxeles de esa familia en la página 1."
+      rol: "superficie secundaria y fondo de rayo. NO es un tercer color de marca: es la sombra del azul."
+      tinta_permitida:
+        - "blanco"
+        - "verde"
+        - "gris-borde"
+        - "gris-velo"
+        - "hueso"
+      tinta_solo_grande:
+        - "azul"
+      tinta_prohibida:
+        - "ink"
+        - "ink-2"
+        - "ink-3"
+        - "gris-texto"
+      _aviso: "ink-3 sobre azul-profundo da 1.00 — son el MISMO valor de luminancia. Una tarjeta ink-3 sobre esta superficie es invisible sin filete."
+    claro-rayo:
+      hex: "#E6F7FE"
+      origen: "color dominante de P4F_05_fondo_claro_rayo.jpg (16 % de los píxeles)."
+      rol: "superficie clara decorativa. Decisión de Piero (16-ago-2026): entra al sistema SOLO como fondo, no como tema de color."
+      tinta_permitida:
+        - "ink"
+        - "ink-2"
+        - "ink-3"
+        - "gris-texto"
+      tinta_solo_grande: []
+      tinta_prohibida:
+        - "azul"
+        - "verde"
+        - "blanco"
+        - "gris-borde"
+        - "gris-velo"
+        - "hueso"
+      _aviso: "REGLA DURA: aquí el azul da 2.91 y el verde 1.77. Ninguno de los dos llega ni al umbral de texto grande, así que `tinta_solo_grande` está VACÍA a propósito. Sobre esta superficie los colores de marca son FORMA —rayos, filetes, pastillas con texto ink encima— y nunca tinta de texto."
+  roles:
+    _jerarquia: "El protagonista es el AZUL. El verde es acento: aparece poco y siempre sobre oscuro. Si una pieza se resuelve con fondo + azul + blanco, se resuelve así."
+    fondo-principal: "fondo"
+    fondo-claro: "blanco"
+    superficie-oscura-2: "azul-profundo"
+    superficie-clara-2: "claro-rayo"
+    primario: "azul"
+    acento: "verde"
+    texto-sobre-oscuro: "blanco"
+    texto-sobre-claro: "ink"
+    texto-secundario-claro: "gris-texto"
+    borde: "gris-borde"
+  contraste:
+    _nota: "Medido con la fórmula WCAG 2.1 sobre los hex reales. Estas son las REGLAS DURAS del sistema y las comprueba auditoria.py."
+    _umbrales:
+      AA_normal: 4.5
+      AA_grande: 3.0
+      AAA: 7.0
+    medido:
+      blanco_sobre_ink:
+        ratio: 16.88
+        AA_normal: true
+        uso: "libre"
+      ink_sobre_blanco:
+        ratio: 16.88
+        AA_normal: true
+        uso: "libre"
+      verde_sobre_ink:
+        ratio: 8.68
+        AA_normal: true
+        uso: "libre — es la combinación del acento"
+      ink_sobre_verde:
+        ratio: 8.68
+        AA_normal: true
+        uso: "libre — texto en botón verde"
+      ink_sobre_azul:
+        ratio: 5.28
+        AA_normal: true
+        uso: "libre — ES la forma correcta de poner texto sobre azul"
+      azul_sobre_ink:
+        ratio: 5.28
+        AA_normal: true
+        uso: "libre"
+      blanco_sobre_azul:
+        ratio: 3.2
+        AA_normal: false
+        uso: "SOLO texto grande (≥24pt o ≥19pt bold). Nunca texto de cuerpo."
+      azul_sobre_blanco:
+        ratio: 3.2
+        AA_normal: false
+        uso: "SOLO texto grande. Para cuerpo en azul, usar fondo ink."
+      verde_sobre_blanco:
+        ratio: 1.95
+        AA_normal: false
+        uso: "PROHIBIDO como texto. El verde no se lee sobre claro."
+      blanco_sobre_verde:
+        ratio: 1.95
+        AA_normal: false
+        uso: "PROHIBIDO. Texto sobre verde va en ink."
+      verde_sobre_azul:
+        ratio: 1.64
+        AA_normal: false
+        uso: "PROHIBIDO. Los dos colores de marca no se tocan como texto/fondo."
+      blanco_sobre_fondo:
+        ratio: 20.18
+        AA_normal: true
+        uso: "libre — es la combinación por defecto del sistema"
+      verde_sobre_fondo:
+        ratio: 10.37
+        AA_normal: true
+        uso: "libre — el acento sobre el fondo nuevo gana 1.69 respecto a ink"
+      azul_sobre_fondo:
+        ratio: 6.31
+        AA_normal: true
+        uso: "libre"
+      gris-texto_sobre_fondo:
+        ratio: 3.65
+        AA_normal: false
+        uso: "SOLO texto grande. Para texto secundario sobre fondo, gris-borde (9.87)."
+      blanco_sobre_azul-profundo:
+        ratio: 11.25
+        AA_normal: true
+        uso: "libre"
+      verde_sobre_azul-profundo:
+        ratio: 5.78
+        AA_normal: true
+        uso: "libre — el acento sí funciona sobre la superficie secundaria"
+      azul_sobre_azul-profundo:
+        ratio: 3.52
+        AA_normal: false
+        uso: "SOLO texto grande. El azul sobre su propia sombra apenas se separa."
+      ink_sobre_claro-rayo:
+        ratio: 15.35
+        AA_normal: true
+        uso: "libre — es la ÚNICA tinta principal de la superficie clara"
+      gris-texto_sobre_claro-rayo:
+        ratio: 5.03
+        AA_normal: true
+        uso: "libre — texto secundario sobre superficie clara"
+      azul_sobre_claro-rayo:
+        ratio: 2.91
+        AA_normal: false
+        uso: "PROHIBIDO, ni siquiera en texto grande (no llega a 3.0). Solo forma."
+      verde_sobre_claro-rayo:
+        ratio: 1.77
+        AA_normal: false
+        uso: "PROHIBIDO. Solo forma."
+    reglas_duras:
+      - "Texto de cuerpo sobre azul → SIEMPRE ink, nunca blanco (3.20 no pasa AA)."
+      - "El verde NUNCA es texto sobre fondo claro (1.95 sobre blanco, 1.77 sobre claro-rayo). Solo sobre superficie oscura."
+      - "Verde y azul no se combinan como texto sobre fondo (1.64). En el logo conviven como formas, que es otra cosa."
+      - "Sobre foto o vídeo: velo ink al 60–80 % antes de poner texto o logo."
+      - "Sobre `claro-rayo` los dos colores de marca son FORMA, nunca tinta: azul 2.91 y verde 1.77 no llegan ni al umbral de texto grande. El texto ahí va en ink (15.35) o gris-texto (5.03)."
+      - "Una tarjeta `ink-3` sobre `azul-profundo` es invisible: mismo valor de luminancia (1.00). Sobre esa superficie las tarjetas se separan con filete, no con relleno."
+  retirados:
+    _nota: "NO se usan. Están aquí para que auditoria.py los detecte en una pieza y diga de dónde salieron. Lo ya publicado con ellos no se retoca."
+    #C5F97E: "«Neon Lime» de Pitch4Fun_LineaGrafica_v1/v2.pdf (27-feb-2026). No es el verde del logo, que es #83CE00. Tener los dos en circulación era el defecto principal de la marca."
+    #111827: "«Dark Core» de la misma guía. El dark real del diseñador es #121D30."
+    #009DFF: "azul del `logo.svg` que sirve el sitio web. Ese SVG no es el logo: es una reconstrucción a mano con Impact."
+    #9DFF00: "verde del mismo SVG falso."
+    #256A8C: "«Deep Teal» de la guía v2. RETIRADO EN FIRME por Piero el 16-ago-2026: llevaba desde el paso 1 sin rol y no aparece en ninguna de las 15 referencias. Su hueco funcional lo ocupa `azul-profundo`."
+    #44B4B8: "«Cyan Teal» de la guía v2. Retirado en firme el 16-ago-2026, mismo motivo."
+    #F97316: "«Orange Alt» de la guía v2. Retirado en firme el 16-ago-2026: además de no tener rol, no aparece en ninguna de las 15 referencias — es el único color de la guía que no tiene ni un píxel en el material real."
+    #1CA0E6: "estimación a ojo de una memoria vieja mía. Nunca fue un color de la marca."
+    #6FC42E: "misma estimación errónea."
+    #0A1628: "fondo que el sistema declaró en el paso 1, derivado del ink. SUPERADO el 16-ago-2026 por #000714, que es el que usan las 8 páginas reales. No es un error: es un fondo anterior. Las piezas construidas antes de esa fecha lo llevan."
+    #121D2F: "fondo de los 7 assets sueltos de la revista. SUPERADO por #000714. Es indistinguible del ink de marca (#121D30, contraste 1.00 entre ambos), lo que lo hacía especialmente malo como fondo: superficie y tinta oscura eran el mismo color."
+tipografia:
+  _nota: "Obvia (la del logo) es comercial y no está instalada. El logo va en curvas y no la necesita. Todo el TEXTO del sistema usa Saira."
+  familia:
+    nombre: "Saira"
+    licencia: "SIL Open Font License 1.1"
+    autor: "Omnibus-Type"
+    carpeta: "fuentes/"
+    por_que: "Elegida midiendo contra la Obvia auténtica extraída del PDF. Distancia 0.567 sobre 7 métricas de forma, la mejor de 314 familias del disco + 8 candidatas OFL. Sus itálicas tienen ItalicAngle −12.0°, exactamente el de Obvia."
+  pesos:
+    regular:
+      valor: 400
+      fichero: "Saira-Regular.ttf"
+      italica: "Saira-RegularItalic.ttf"
+    medium:
+      valor: 500
+      fichero: "Saira-Medium.ttf"
+      italica: "Saira-MediumItalic.ttf"
+    semibold:
+      valor: 600
+      fichero: "Saira-SemiBold.ttf"
+      italica: "Saira-SemiBoldItalic.ttf"
+    bold:
+      valor: 700
+      fichero: "Saira-Bold.ttf"
+      italica: "Saira-BoldItalic.ttf"
+    extrabold:
+      valor: 800
+      fichero: "Saira-ExtraBold.ttf"
+      italica: "Saira-ExtraBoldItalic.ttf"
+    black:
+      valor: 900
+      fichero: "Saira-Black.ttf"
+      italica: "Saira-BlackItalic.ttf"
+  italica:
+    modo: "real"
+    _modo_nota: "`real` usa los ficheros *Italic.ttf (dibujados, −12°). `oblicua` usaría la romana con un skew de −12°, que queda métricamente más cerca del logo (0.567 vs 1.745) pero distorsiona las curvas. Cambiar aquí y volver a correr build.py."
+    angulo: -12.0
+  roles:
+    display:
+      peso: "black"
+      italica: true
+      caja: "alta"
+      uso: "titulares de flyer, portada de revista, placas de streaming"
+    titular:
+      peso: "extrabold"
+      italica: true
+      caja: "alta"
+      uso: "titulares de sección y de post"
+    subtitular:
+      peso: "bold"
+      italica: false
+      caja: "normal"
+      uso: "bajadas y antetítulos"
+    cuerpo:
+      peso: "regular"
+      italica: false
+      caja: "normal"
+      uso: "texto corrido de revista y dossier"
+    cuerpo-fuerte:
+      peso: "semibold"
+      italica: false
+      caja: "normal"
+      uso: "destacados dentro del cuerpo"
+    dato:
+      peso: "extrabold"
+      italica: false
+      caja: "normal"
+      uso: "cifras y métricas. Siempre en bold: esto va de ejecución."
+    pie:
+      peso: "medium"
+      italica: false
+      caja: "normal"
+      uso: "pies de foto, créditos, notas al pie"
+    etiqueta:
+      peso: "bold"
+      italica: false
+      caja: "alta"
+      uso: "píldoras, kickers, etiquetas de sección"
+      tracking: 0.08
+  escala_pt:
+    _nota: "Para hoja 8.5×11 (612×792 pt). Razón 1.25 redondeada a valores limpios."
+    micro: 7
+    pie: 8.5
+    cuerpo: 10
+    cuerpo-lg: 12
+    h4: 15
+    h3: 19
+    h2: 24
+    h1: 31
+    display: 40
+    display-xl: 54
+  escala_px:
+    _nota: "Para lienzos de redes y streaming a 1080 px de ancho. Multiplicar por el ancho real / 1080."
+    micro: 20
+    pie: 24
+    cuerpo: 30
+    cuerpo-lg: 36
+    h4: 44
+    h3: 56
+    h2: 70
+    h1: 88
+    display: 112
+    display-xl: 148
+  interlineado:
+    display: 0.95
+    titular: 1.02
+    subtitular: 1.15
+    cuerpo: 1.45
+    dato: 1.0
+    pie: 1.3
+  reglas:
+    - "Titulares en CAJA ALTA e itálica. Es el gesto del logo."
+    - "Máximo 10–12 palabras por titular."
+    - "Las cifras SIEMPRE en extrabold."
+    - "Una idea por pieza. Un CTA por pieza. Un acento verde por pieza."
+hoja:
+  _nota: "8.5 × 11 pulgadas. Cerrado por Piero el 15-ago-2026."
+  pulgadas:
+    - 8.5
+    - 11
+  pt:
+    - 612
+    - 792
+  px_150dpi:
+    - 1275
+    - 1650
+  px_300dpi:
+    - 2550
+    - 3300
+  margen_pt:
+    superior: 60
+    inferior: 60
+    exterior: 54
+    interior: 54
+  caja_texto_pt:
+    - 504
+    - 672
+  sangrado_pt: 9
+  _reticula_nota: "Los márgenes no son redondos por gusto: 60/60 dejan una caja de 672 pt que son 48 líneas EXACTAS de 14 pt, y 54/54 dejan 504 pt que son 6 columnas EXACTAS de 74 con medianil de 12. Cambiar un margen rompe las dos cuadrículas; `build.py doctor` lo detecta."
+  reticula:
+    linea_base_pt: 14
+    lineas_por_caja: 48
+    columnas: 6
+    ancho_columna_pt: 74
+    medianil_pt: 12
+    columnas_de_texto:
+      revista: 2
+      hoja-interna: 1
+      dossier: 1
+    ancho_columna_texto_pt: 246
+    _ancho_columna_texto_nota: "3 columnas de retícula + su medianil interno: 74×3 + 12×2 = 246. Dos de esas más el medianil central: 246×2 + 12 = 504."
+editorial:
+  _nota: "El estilo de las hojas de la revista. Decisiones mías salvo lo que diga otra cosa; se cambian aquí y se regenera."
+  ritmo_de_color:
+    _por_que: "Una revista de 24 pp toda en ink es cara de imprimir y dura de leer de corrido. El dark se reserva para los golpes."
+    portada: "fondo"
+    apertura-seccion: "fondo"
+    lectura: "blanco"
+    datos: "fondo"
+    tarjetas: "blanco"
+    muro-logos: "blanco"
+    cierre: "fondo"
+    carta: "blanco"
+    dossier-portada: "fondo"
+    dossier-que-es: "blanco"
+    dossier-alcance: "fondo"
+    dossier-niveles: "blanco"
+    dossier-cierre: "fondo"
+    muro-aliados: "blanco"
+    sumario: "blanco"
+    carta-editorial: "blanco"
+    galeria: "blanco"
+    cita-pagina: "fondo"
+    expertos: "blanco"
+    entrevista: "blanco"
+    proceso: "blanco"
+    agenda: "blanco"
+    creditos: "blanco"
+    patrocinio-revista: "fondo"
+    testimonios: "blanco"
+    contraportada: "fondo"
+    _revista_24pp: "Los 12 tipos añadidos el 17-ago-2026 completan el ritmo de una revista de 24 pp: hasta entonces el sistema solo declaraba las 5 hojas del muestrario y cualquier página nueva caía en 'blanco' por defecto, que rompe la alternancia oscuro/claro que justifica este token."
+  cabecera:
+    altura_pt: 28
+    kicker:
+      rol: "etiqueta"
+      color: "verde"
+      tamano_pt: 8
+    seccion:
+      rol: "etiqueta"
+      tamano_pt: 8
+    filete_pt: 1.5
+    _nota: "El filete arranca en el borde exterior y muere en la columna 4: no cruza la hoja entera. Es el gesto diagonal del rayo traducido a retícula."
+  folio:
+    posicion: "inferior exterior"
+    numero:
+      rol: "dato"
+      tamano_pt: 19
+    etiqueta:
+      rol: "pie"
+      tamano_pt: 7.5
+    barra_verde:
+      ancho_pt: 22
+      alto_pt: 3
+  marca_de_agua:
+    activa: true
+    archivo: "logo/p4f-isotipo-ink.svg"
+    opacidad: 0.05
+    alto_pt: 300
+    posicion: "inferior interior, sangrada"
+    _nota: "Solo en páginas de lectura. En ink usa la variante blanca a la misma opacidad."
+  tarjeta_proyecto:
+    por_pagina: 4
+    alto_pt: 208
+    borde_pt: 1.5
+    campos:
+      - "nombre"
+      - "one-liner"
+      - "MVP"
+      - "ASK"
+    _campos_origen: "Recap_Revista_PostEvento_Pitch4Fun.pdf, estructura editorial de 24 pp"
+    _por_pagina_nota: "Con 4 proyectos por hoja las tarjetas caben sin apretar: medido el 15-ago-2026 sobre los 4 nombres reales, 0 overflow y 0 solapes. Responde de hecho a la duda de 3 contra 4."
+  dato_grande:
+    cifra:
+      rol: "dato"
+      tamano_pt: 54
+    etiqueta:
+      rol: "pie"
+      tamano_pt: 9
+    _aviso: "Si la cifra es null se imprime [TBD] en verde, visible. No se deja en blanco ni se inventa."
+  _ritmo_nota_fondo: "16-ago-2026: las páginas oscuras pasaron de `ink` a `fondo` (#000714). La tarjeta se separa MEJOR del fondo nuevo: relleno 1.30 (era 1.16) y borde 1.79 (era 1.61)."
+componentes:
+  _nota: "El lenguaje visual que Piero aprobó con la revista de referencia (15-ago-2026, en `_fuente/referencia-revista/`). Los elementos se GENERAN, no se copian: las páginas de referencia son PNG con todo horneado y no se puede extraer nada limpio de ellas — se intentó y salió contaminado con texto y fotos."
+  pildora_diagonal:
+    _que_es: "La banda inclinada con un claim en itálica. Es el remate de las páginas de cierre y del pie de portada."
+    inclinacion_banda: -6.0
+    _inclinacion_origen: "medida en la referencia: -6.17° sobre el borde superior de la banda verde de la portada"
+    corte_lateral: -12.0
+    _corte_origen: "el ángulo de la itálica del sistema, para que el corte rime con el texto que lleva dentro"
+    alto_pt: 26
+    padding_x_pt: 16
+    texto:
+      rol: "titular"
+      tamano_pt: 14
+    colores:
+      - "verde"
+      - "azul"
+    _regla: "El texto va SIEMPRE en ink, nunca en blanco: sobre verde el blanco da 1.95 y sobre azul 3.20. Ninguno pasa AA."
+  cabecera_seccion:
+    _que_es: "El número de sección grande en verde, una barra separadora, y el título en caja alta."
+    numero:
+      rol: "display"
+      tamano_pt: 34
+      color: "verde"
+    separador: "/"
+    titulo:
+      rol: "titular"
+      tamano_pt: 26
+    subtitulo:
+      rol: "etiqueta"
+      tamano_pt: 9
+      color: "verde"
+    filete_pt: 1.5
+    _canonica: "`numero` grande en acento · separador «/» · TÍTULO en versalitas · subtítulo opcional debajo · filete. Es la ÚNICA forma del sistema y la usan los 9 sitios que abren sección."
+    variantes_retiradas:
+      _nota: "Las 4 formas que conviven en las 8 páginas de referencia. Están aquí para que la auditoría las reconozca en una pieza y diga de dónde salieron. Lo ya publicado con ellas no se retoca."
+      barra-numero-barra: "«/ 08 / ORGANIZADORES» (p.12). Dos separadores para un solo número: el de la izquierda no separa nada."
+      numero-barra-titulo-mixto: "«04 / Proyectos — Edición Virtual (2/2)» (pp. 6-8). Mezcla versalitas y caja baja en el mismo titular, y mete la paginación de sección dentro del título en vez de en el folio."
+      numero-barra-versalita-pequena: "«01 / RESUMEN DEL EVENTO» (pp. 2-3). Misma estructura que la canónica pero con el título al tamaño del subtítulo: la jerarquía se pierde."
+      numero-y-titulo-en-dos-lineas: "«06 /» y «QUÉ SIGUE» debajo (p.10). Rompe la línea base entre número y título y descuadra la retícula de la página."
+    _por_que_una: "Cuatro cabeceras distintas en catorce páginas es lo que hace que una revista parezca cuatro revistas. La canónica se eligió porque es la única de las cuatro que mantiene la jerarquía (número > título > subtítulo) y cabe en una sola línea base."
+  pie_claims:
+    _que_es: "La barra inferior: claim en verde, claim en azul, un nodo y el folio en la esquina exterior."
+    claim_a:
+      texto: "IDEAS QUE EJECUTAN."
+      color: "verde"
+    claim_b:
+      texto: "FUTURO QUE TRANSFORMA."
+      color: "azul"
+    tamano_pt: 9
+    nodo_radio_pt: 3
+    linea_pt: 1
+  tarjeta:
+    radio_pt: 8
+    borde_pt: 1
+    borde_color: "ink-3"
+    relleno_sobre_ink: "ink-2"
+    relleno_sobre_claro: "blanco"
+    padding_pt: 14
+  rayo_decorativo:
+    _que_es: "El rayo del isotipo, suelto y a gran escala, sangrado por una esquina. Es el gesto de marca, no un adorno cualquiera: sale del logo real."
+    archivo: "patrones/p4f-rayo-mascara.png"
+    opacidad:
+      - 0.14
+      - 0.3
+    rotacion:
+      - -18
+      - 12
+    esquinas:
+      - "sup-izq"
+      - "inf-der"
+    _aislado: "El rayo se aisló del isotipo por DIFERENCIA (render con y sin el elemento del degradado): 117.114 px, ratio 0.525. Usar el isotipo entero como decorativo se leía como logos gigantes repetidos, no como textura."
+  salpicadura:
+    _que_es: "Las motas que acompañan al rayo. Se generan con semilla fija: la misma semilla da siempre la misma salpicadura, así una página regenerada no cambia."
+    semilla: 4
+    motas:
+      - 40
+      - 90
+    radio_px:
+      - 1
+      - 7
+    opacidad:
+      - 0.25
+      - 0.75
+  placa_lower_third:
+    _que_es: "La placa del tercio inferior. Fondo ink opaco porque va sobre video: sin fondo opaco el texto se lee o no según el fotograma, que es lo mismo que no controlarlo."
+    alto_px: 152
+    ancho_minimo_px: 620
+    padding_x_px: 42
+    filete_px: 12
+    _filete_regla: "El filete vertical de la izquierda es el que distingue el rol sin leer: VERDE para quien presenta, AZUL para quien evalúa. Un solo golpe de color por placa."
+    filete_color:
+      pitcher: "verde"
+      experto: "azul"
+    corte_lateral: -12.0
+    _corte_origen: "el ángulo de la itálica del sistema, el mismo que remata la píldora"
+    nombre:
+      rol: "titular"
+      tamano_px: 56
+    detalle:
+      rol: "subtitular"
+      tamano_px: 30
+    etiqueta:
+      rol: "etiqueta"
+      tamano_px: 20
+    _fondo_nota: "Misma razón que barra_escena: placa opaca sobre vídeo en `ink`, no en `fondo`."
+  barra_escena:
+    _que_es: "La barra superior del overlay: logo a la izquierda, etiqueta de momento a la derecha. Marca la escena sin robarle sitio a la cámara."
+    alto_px: 132
+    logo_alto_px: 53
+    padding_x_px: 96
+    fondo: "ink"
+    filete_inferior_px: 4
+    filete_color: "verde"
+    etiqueta:
+      rol: "etiqueta"
+      tamano_px: 24
+    eje_contenido_px: 80
+    _alto_origen: "104 px dejaban el texto de la barra a y=52, por encima del límite de título (54). Con 132 y el contenido centrado en y=80 el logo ocupa 55..105 y la etiqueta 68..92: los dos dentro de la zona segura."
+    _fondo_nota: "Sigue en `ink`, no en `fondo`, a propósito: esta barra va SOBRE imagen de cámara, y el ink (#121D30) es un punto más claro que el fondo de pieza (#000714), lo justo para que no abra un agujero negro en el fotograma. Contraste entre los dos: 1.20."
+    _logo_alto_origen: "53 px es el alto con el que `p4f-lockup-blanco.svg` alcanza los 120 px de ancho que declara `logo.minimos.lockup_px`. Estaba en 50 (115 px de ancho) y era uno de los 14 logos por debajo del mínimo que encontró la auditoría del 16-ago-2026. NO se escribe a mano: sale de `nucleo.alto_minimo_logo()`."
+  franja_escena:
+    _que_es: "La franja inferior del overlay: claim a la izquierda, cuenta de la edición a la derecha. Va POR ENCIMA de la barra del reproductor."
+    alto_px: 72
+    padding_x_px: 96
+    fondo: "ink"
+    texto:
+      rol: "etiqueta"
+      tamano_px: 22
+  _nota_proporciones: "Los 9 componentes de la tanda C declaran sus medidas como PROPORCIÓN de su caja, no en pt ni en px. Es lo que permite que el mismo componente sirva en una hoja de 612 pt y en un lienzo de 1080 px sin duplicar valores — y duplicarlos es cómo se desincronizan."
+  metrica:
+    _que_es: "Placa de dato: icono, cifra grande, etiqueta y nota. Es el bloque de «+1,400 IAVANZA» de la p.11 y el de «2 EDICIONES» de la p.3."
+    _origen: "pp. 3 y 11 de la revista de referencia."
+    icono_alto: 0.2
+    cifra_alto: 0.3
+    etiqueta_alto: 0.085
+    nota_alto: 0.058
+    padding: 0.09
+    radio: 0.055
+    aire_icono: 0.06
+    aire_cifra: 0.04
+    _regla: "La cifra manda: es lo único que se lee de lejos. Si no cabe la nota, se cae la nota, nunca la cifra."
+  ficha_persona:
+    _que_es: "Tarjeta de persona: retrato arriba, medallón con icono a caballo del borde, nombre, rol y una línea de descripción."
+    _origen: "p.12 (organizadores) y p.4 (expertos) de la referencia."
+    retrato_alto: 0.52
+    medallon: 0.155
+    medallon_borde: 0.012
+    nombre_alto: 0.088
+    rol_alto: 0.058
+    desc_alto: 0.05
+    padding: 0.055
+    radio: 0.045
+    _regla: "El medallón va a caballo del borde inferior del retrato, centrado a la izquierda del padding. Nunca sobre la cara: en la referencia siempre cae sobre el hombro."
+  chip:
+    _que_es: "Pastilla de estado con icono: «Proyecto presentado», «MVP en desarrollo», «Pitch + feedback + ASK»."
+    _origen: "pp. 5 y 6 de la referencia."
+    alto_texto: 0.62
+    padding_x: 0.62
+    gap_icono: 0.42
+    radio: 0.5
+    icono: 0.86
+    _regla: "Las medidas van en proporción al TAMAÑO DE TEXTO, no a una caja: un chip se dimensiona por su contenido."
+  paso:
+    _que_es: "Paso de una secuencia: nodo en el eje, flecha con número y bloque de texto. Es el «QUÉ SIGUE» de la p.10."
+    _origen: "p.10 de la referencia."
+    nodo_radio: 0.11
+    flecha_ancho: 0.3
+    punta: 0.055
+    eje_grosor: 0.018
+    numero_alto: 0.3
+    titulo_alto: 0.235
+    texto_alto: 0.175
+    gap: 0.1
+    _regla: "El eje se dibuja ANTES que los nodos: al revés, la línea parte el nodo por la mitad."
+  credito:
+    _que_es: "Fila de crédito: icono, filete vertical de acento, rótulo y valor, con divisoria debajo."
+    _origen: "p.13 de la referencia."
+    icono: 0.52
+    filete_ancho: 0.05
+    filete_alto: 0.55
+    rotulo_alto: 0.34
+    valor_alto: 0.34
+    gap_icono: 0.34
+    gap_filete: 0.3
+    _regla: "El rótulo va en acento y el valor en tinta: es lo que separa el campo del dato sin meter una segunda tipografía."
+  celda_logo:
+    _que_es: "Celda del muro de aliados: tarjeta con el logo dentro respetando su espacio de respeto, o hueco marcado si aún no hay logo."
+    _origen: "p.9 de la referencia."
+    padding: 0.14
+    radio: 0.06
+    logo_max_ancho: 0.72
+    logo_max_alto: 0.48
+    _regla: "El logo se escala para caber en las DOS medidas y se centra. Un logo apaisado metido a la fuerza por altura se sale por los lados — ya pasó en otra ficha."
+    logo_area: 0.055
+    _logo_area_origen: "Fracción del área de la celda que debe ocupar la TINTA del logo. Iguala el peso óptico entre marcas de nombre corto y largo: escalando solo por ancho, «JCI» salía a 51 px de alto y «Desarrolla» a 18 en el mismo muro (razón 2.83) y el primero se leía casi al triple. Calibrado el 17-ago-2026 sobre el muro de 12 de la p.20 del prototipo."
+  bloque_cita:
+    _que_es: "Cita destacada: comilla grande, texto, autor y marco en L abierto."
+    _origen: "p.2 de la referencia — el mensaje de Piero."
+    comilla: 0.16
+    texto_alto: 0.085
+    autor_alto: 0.062
+    nota_alto: 0.055
+    padding: 0.075
+    marco_grosor: 0.008
+    marco_largo: 0.3
+    _regla: "El marco es una L abierta, no un rectángulo cerrado: en la referencia el bloque respira por la derecha."
+  hueco_logo:
+    _que_es: "Marco punteado de «TU LOGO AQUÍ» para el patrocinador que aún no está."
+    _origen: "p.7 de la referencia."
+    radio: 0.08
+    grosor: 0.018
+    trazo: 0.09
+    hueco: 0.06
+    etiqueta_alto: 0.14
+    _regla: "Punteado a propósito: un marco continuo se lee como una tarjeta vacía y se cuela en la exportación; uno punteado se lee como «falta esto»."
+  mosaico:
+    _que_es: "Rejilla asimétrica de fotos: una grande y varias pequeñas, con filete."
+    _origen: "p.11 de la referencia — 5 fotos en 2 filas."
+    medianil: 0.018
+    radio: 0.03
+    fila_alta: 0.46
+    _regla: "El reparto es fijo por número de fotos (2 arriba / 3 abajo para 5). No se calcula al vuelo: una rejilla que cambia de forma según el contenido deja de ser un componente."
+    repartos:
+      2:
+        - 2
+      3:
+        - 3
+      4:
+        - 2
+        - 2
+      5:
+        - 2
+        - 3
+      6:
+        - 3
+        - 3
+      7:
+        - 2
+        - 2
+        - 3
+    pesos_fila_alta:
+      - 0.58
+      - 0.42
+formatos:
+  _nota: "Los lienzos que generan los 4 módulos del paso 3."
+  editorial:
+    revista:
+      pt:
+        - 612
+        - 792
+      paginas:
+        - 16
+        - 24
+      uso: "revista post-evento"
+    hoja-interna:
+      pt:
+        - 612
+        - 792
+      uso: "informes, checklists, actas, one-pagers"
+    carta:
+      pt:
+        - 612
+        - 792
+      uso: "carta de patrocinio"
+    dossier:
+      pt:
+        - 612
+        - 792
+      uso: "dossier de patrocinio"
+  redes:
+    _nota: "Lienzos de redes. La zona segura NO es el margen: es lo que la app tapa con su propia interfaz. Medido sobre las guías públicas de cada plataforma; conservador a propósito."
+    post-cuadrado:
+      px:
+        - 1080
+        - 1080
+      margen_px: 72
+      uso: "feed IG/LinkedIn"
+    post-retrato:
+      px:
+        - 1080
+        - 1350
+      margen_px: 72
+      uso: "feed IG — ocupa más pantalla"
+    historia:
+      px:
+        - 1080
+        - 1920
+      margen_px: 72
+      zona_segura_px:
+        arriba: 250
+        abajo: 250
+      _zona_nota: "IG tapa arriba con el avatar y la barra, y abajo con el campo de respuesta. Nada legible en esas franjas."
+    carrusel:
+      px:
+        - 1080
+        - 1350
+      margen_px: 72
+      laminas:
+        - 3
+        - 10
+    portada-yt:
+      px:
+        - 1280
+        - 720
+      margen_px: 64
+      uso: "miniatura — 2-4 palabras máximo"
+  streaming:
+    _nota: "1920×1080 siempre. Un overlay va SOBRE video: su lienzo es RGBA y todo lo que no es placa queda transparente, para poder cargarlo tal cual en OBS o StreamYard."
+    px:
+      - 1920
+      - 1080
+    margen_px:
+      _nota: "En broadcast el margen de composición ES la zona segura de título: no tiene sentido un margen propio más generoso que lo que el televisor no recorta. Abajo manda la barra del reproductor (90), que es mayor que los 54 de título."
+      izquierda: 96
+      derecha: 96
+      arriba: 54
+      abajo: 90
+    zona_segura_px:
+      _nota: "NO es el margen. `titulo` es lo que un televisor puede recortar y donde por tanto no va texto; `accion` es el límite de cualquier gráfico; `barra_reproductor` es la franja de abajo que el reproductor tapa con sus controles cuando el espectador mueve el ratón."
+      titulo:
+        x: 96
+        y: 54
+        porcentaje: 5.0
+      accion:
+        x: 67
+        y: 38
+        porcentaje: 3.5
+      barra_reproductor: 90
+    _zona_origen: "Título al 5 % y acción al 3.5 % del lienzo, que es el criterio de EBU R95 y SMPTE para 16:9. La franja del reproductor es conservadora a propósito: la barra de YouTube a 1080p ocupa menos, pero el lower-third no debe quedar nunca por debajo de ella."
+    overlay:
+      px:
+        - 1920
+        - 1080
+      alfa: true
+      uso: "marco de escena: barra superior con logo, franja inferior con claim, centro libre para la cámara"
+    lower-third:
+      px:
+        - 1920
+        - 1080
+      alfa: true
+      zona: "tercio inferior izquierdo, por encima de la barra del reproductor"
+      variantes:
+        - "pitcher"
+        - "experto"
+    placa-ganador:
+      px:
+        - 1920
+        - 1080
+      alfa: false
+      uso: "pantalla completa opaca al cierre"
+    cuenta-regresiva:
+      px:
+        - 1920
+        - 1080
+      alfa: false
+      uso: "pantalla completa opaca antes de empezar. El número lo repone el software de stream sobre el hueco marcado."
+    marco-qr:
+      px:
+        - 1920
+        - 1080
+      alfa: true
+      uso: "tarjeta en una esquina con el QR de votación o registro. Sin `edicion.registro_url` el QR va como hueco marcado: no se inventa un destino."
+  deck:
+    px:
+      - 1920
+      - 1080
+    margen_px:
+      izquierda: 112
+      derecha: 112
+      arriba: 84
+      abajo: 84
+    uso: "deck de patrocinadores, para proyectar o mandar en PDF"
+    _margen_nota: "Más holgado que el overlay de streaming porque aquí manda la lectura a distancia, no la interfaz de un reproductor. Un deck no lleva zona segura de broadcast: no va sobre video."
+logo:
+  _nota: "Los 10 SVG de logo/. Medidas en pt tomadas de la tinta real, no de la caja del archivo."
+  variantes:
+    lockup-color:
+      archivo: "logo/p4f-lockup-color.svg"
+      pt:
+        - 204.0
+        - 87.88
+      fondo: "claro"
+    lockup-ink:
+      archivo: "logo/p4f-lockup-ink.svg"
+      pt:
+        - 204.04
+        - 87.96
+      fondo: "claro"
+    lockup-color-dark:
+      archivo: "logo/p4f-lockup-color-dark.svg"
+      pt:
+        - 187.17
+        - 81.71
+      fondo: "oscuro"
+    lockup-blanco:
+      archivo: "logo/p4f-lockup-blanco.svg"
+      pt:
+        - 187.17
+        - 81.71
+      fondo: "oscuro"
+    isotipo-color:
+      archivo: "logo/p4f-isotipo-color.svg"
+      pt:
+        - 59.29
+        - 86.75
+      fondo: "claro"
+    isotipo-ink:
+      archivo: "logo/p4f-isotipo-ink.svg"
+      pt:
+        - 59.29
+        - 86.75
+      fondo: "claro"
+    isotipo-blanco:
+      archivo: "logo/p4f-isotipo-blanco.svg"
+      pt:
+        - 59.29
+        - 86.75
+      fondo: "oscuro"
+    appicon-azul:
+      archivo: "logo/p4f-appicon-azul.svg"
+      pt:
+        - 61.29
+        - 61.17
+      fondo: "cualquiera"
+    appicon-verde:
+      archivo: "logo/p4f-appicon-verde.svg"
+      pt:
+        - 61.29
+        - 61.29
+      fondo: "cualquiera"
+    appicon-ink:
+      archivo: "logo/p4f-appicon-ink.svg"
+      pt:
+        - 61.29
+        - 61.29
+      fondo: "cualquiera"
+  clear_space:
+    factor: 0.1
+    referencia: "ancho del lockup"
+    regla: "X = 10 % del ancho del logo. Nada entra en ese margen, ni texto ni foto ni otro logo."
+  minimos:
+    lockup_px: 120
+    isotipo_px: 48
+    _nota: "Por debajo de 48 px el isotipo pierde el micrófono. Para 16–32 px usar el appicon."
+    watermark_opacidad:
+      - 0.7
+      - 0.85
+  prohibido:
+    - "Estirar o deformar: se escala proporcional o no se escala."
+    - "Sombras suaves. Si hace falta separación, velo ink debajo."
+    - "Recortar el lockup. El logo va completo."
+    - "Ponerlo sobre foto sin velo ink al 60–80 %."
+    - "Recolorearlo fuera de las 10 variantes de logo/."
+    - "Reconstruirlo con otra tipografía. Ya pasó una vez y quedó publicado."
+edicion:
+  _nota: "LO ÚNICO que cambia entre ediciones. Van 2 al año. Ninguna plantilla hornea estos valores: los leen de aquí. Para una edición concreta, copiar a `tokens/edicion.local.json` con las claves a cambiar."
+  numero: null
+  nombre: null
+  fecha: null
+  hora: null
+  modalidad: null
+  _modalidad_valores:
+    - "presencial"
+    - "virtual"
+    - "híbrida"
+  sede: null
+  ciudad: null
+  registro_url: null
+  instagram: "@pitch4fun.latam"
+  _aviso: "Los nulos son deliberados: un dato de edición que yo no tengo no se inventa. La plantilla que reciba un nulo debe marcarlo visible, no dejarlo en blanco."
+organizadores:
+  _nota: "P4F es de las dos. El bloque de organizadores va en TODA pieza pública."
+  principal:
+    nombre: "Fundación Enlata"
+    rol: "organiza"
+  coorganizador:
+    nombre: "IAvanza"
+    rol: "HUB de Innovación"
+    _nota: "sistema de marca propio en 04 Marca/iavanza_design_system/"
+  formula: "Organizan: Fundación Enlata + IAvanza"
+  _pendiente: null
+  regla: "CERRADA por Piero el 15-ago-2026: los tres logos NO van siempre. Cuando hay que nombrar a quién ejecuta el evento, se nombra a Fundación Enlata e IAvanza —con texto, no necesariamente con logo—. El lockup de P4F va solo en la mayoría de las piezas."
+  logos_juntos: false
+tono:
+  personalidad: "startup rebelde: directa, ágil, sin burocracia"
+  voz: "frases cortas, energía alta, foco en ejecución. Cero relleno."
+  claims:
+    - "MENOS SHOW. MÁS EJECUCIÓN."
+    - "MVP O NADA."
+    - "3 MINUTOS. SIN EXCUSAS."
+    - "FEEDBACK REAL. CONEXIONES REALES."
+    - "TU ASK, CLARO Y ACCIONABLE."
+  _claims_origen: "Pitch4Fun_LineaGrafica_v1/v2.pdf. La paleta de esa guía está retirada, pero sus claims siguen vigentes: son texto, no color."
+  eslogan_hablado: "No vengas solo a mirar, sino a ejecutar."
+  verbos:
+    - "aplica"
+    - "registra"
+    - "presenta"
+    - "conecta"
+    - "ejecuta"
+    - "decide"
+patrocinio:
+  _nota: "La ESTRUCTURA es del sistema; el CONTENIDO lo cierra Piero. Los nombres de nivel y los montos van en null a propósito: un precio inventado dentro de un dossier que acaba en una mesa ajena es el error más caro que puede cometer este sistema."
+  niveles: 3
+  nivel:
+    -
+      nombre: null
+      monto: null
+      moneda: null
+      cupos: null
+    -
+      nombre: null
+      monto: null
+      moneda: null
+      cupos: null
+    -
+      nombre: null
+      monto: null
+      moneda: null
+      cupos: null
+  _moneda_nota: "Ni la moneda está decidida: los patrocinios anteriores se movieron en RD$ y en US$."
+  beneficios:
+    -
+      que: "Logo en el overlay de todas las sesiones en directo"
+      lo_produce: "streaming"
+    -
+      que: "Lower-third propio al intervenir en el panel"
+      lo_produce: "streaming"
+    -
+      que: "Presencia en el muro de aliados"
+      lo_produce: "patrocinadores"
+    -
+      que: "Página en la revista post-evento"
+      lo_produce: "editorial"
+    -
+      que: "Mención en la placa de cierre del directo"
+      lo_produce: "streaming"
+    -
+      que: "Carrusel de agradecimiento en redes"
+      lo_produce: "redes"
+    -
+      que: "Marca en la carta y el dossier de la edición"
+      lo_produce: "patrocinadores"
+  _beneficios_origen: "Cada beneficio corresponde a una pieza que el sistema YA produce. No es una lista de deseos: es lo que hay construido y medido."
+  _reparto_pendiente: "Qué beneficio entra en qué nivel NO está decidido. La plantilla los lista todos y marca el reparto como pendiente."
+evento:
+  _nota: "El formato del pitch. Cerrado por Piero el 15-ago-2026. Sustituye a las dos fuentes que se contradecían («3+3 min» de la guía de línea gráfica y «10 láminas × 30 s» de la guía de deck): ninguna de las dos era correcta."
+  formato_vigente:
+    proyectos: 8
+    minutos_por_pitch: 3
+    etiqueta: "8 PROYECTOS · 3 MINUTOS"
+  historico:
+    -
+      edicion: 1
+      minutos_por_pitch: 5
+      _nota: "la primera edición usó 5 minutos"
+  cadencia_anual: 2
+proyectos:
+  _nota: "Grafía CERRADA por Piero el 15-ago-2026. Son nombres de gente real y van impresos: no se corrigen ni se «arreglan». Resuelve el conflicto entre la revista de referencia y lo transcrito de los vídeos."
+  edicion_1:
+    - "Muuving"
+    - "Vixual"
+    - "Eco Ernesto Visita"
+    - "MelizAI"
+  _sin_confirmar: "Resix y Nebula aparecen en la referencia y no los mencionó Piero. Como en las piezas van en caja alta, la diferencia Resix/RESIX no llega a verse; si alguno sale en caja normal, preguntar antes."
+  _hueco_declarado: "⚠️ CONTRADICCIÓN DECLARADA, no resuelta: `metricas.proyectos_edicion_1` dice 6 y `edicion_1` solo trae 4 nombres (Muuving · Vixual · Eco Ernesto Visita · MelizAI, los que cerró Piero el 15-ago-2026). Faltan 2 nombres o la cifra es de otra cosa. Lo decide Piero; hasta entonces la hoja de tarjetas marca el hueco en vez de listar 4 y numerarlos 01-04 como si fueran todos."
+metricas:
+  _nota: "CONFIRMADAS por Piero el 15-ago-2026 («las cifras son las que expresas»). Origen: la revista de referencia que él mismo entregó. No están verificadas contra una fuente primaria — la autoridad aquí es Piero, y así se cita."
+  _origen: "revista de referencia de 14 pp, confirmada verbalmente por Piero"
+  candidaturas_totales: "+200"
+  candidaturas_edicion_1: "+80"
+  candidaturas_edicion_2: "+120"
+  proyectos_en_tarima_total: 12
+  expertos_por_edicion: 3
+  ediciones_celebradas: 2
+  comunidad_iavanza: "+1.400"
+  comunidad_enlata: "+3.000"
+  talleres_2025: "+80"
+  personas_impactadas: "+20K"
+  _aviso: "Estas cifras SÍ se pueden imprimir. Las que no estén en esta lista siguen saliendo como [TBD]: el sistema no rellena lo que nadie ha confirmado."
+  proyectos_edicion_1: 6
+  proyectos_edicion_2: 6
+  _proyectos_por_edicion_origen: "p.3 de la revista de referencia («1ª Edición (6)» y «2ª Edición (6)»), dentro del bloque de cifras que Piero confirmó el 15-ago-2026 como buenas para imprimir. Suman los 12 de `proyectos_en_tarima_total`, que es la comprobación que hace el doctor."
+  _formato_nota: "Varias métricas son CADENAS, no números («+80», «+1.400», «+20K»): así es como se imprimen y así se guardan. Los gráficos las muestran tal cual y solo derivan el número para calcular la altura de la barra. Convertirlas a int aquí perdería el «+», que es parte del dato: significa «al menos»."
+  _suma_declarada: "proyectos_edicion_1 + proyectos_edicion_2 == proyectos_en_tarima_total"
+iconografia:
+  _que_es: "El juego de iconos del sistema. NO son ficheros escritos a mano: los produce `iconos.py` desde una sola definición, que es lo que garantiza que compartan caja, grosor y remates. Con 26 SVG sueltos el grosor se va de uno en uno y nadie lo nota hasta que hay dos juntos."
+  _origen: "Los 26 salen de las 8 páginas de la revista de referencia (15-ago-2026). Cada uno anota en `iconos.py` en qué página aparece. Ninguno se inventa: un icono que nadie usa es peso muerto que además hay que mantener coherente."
+  caja: 24
+  trazo: 2.0
+  remate: "round"
+  margen_optico: 2
+  color: "@COLOR@ — marcador que sustituye `nucleo.icono()` al cachear. El fichero base NO se puede pintar tal cual."
+  minimo_px: 16
+  _minimo_origen: "MEDIDO, no estimado: se rasterizaron los 26 a 12/14/16/18/20/24/28/32/48 px contando píxeles con alfa pleno. A 12 px hay 6 iconos sin un solo píxel sólido y a 14 px quedan 3; a 16 px ninguno. Por debajo de 16 el trazo es todo antialias y el icono se lee gris, no del color que se le pidió."
+  recomendado_px: 20
+  _recomendado_origen: "A 16 px el peor icono tiene el 8 % de su tinta en alfa pleno; a 20 px sube al 24 %. 16 es el suelo, 20 es donde deja de verse frágil."
+  tamanos_de_uso:
+    en_linea_pt: 11
+    placa_pt: 28
+    medallon_pt: 34
+  regla: "Un icono es FORMA, no texto: le vale el umbral de contraste de texto grande (3.0). Sobre `claro-rayo` eso deja fuera al azul (2.91) y al verde (1.77), igual que al texto."
+  catalogo:
+    - "alianza"
+    - "barras"
+    - "birrete"
+    - "bocadillo"
+    - "calendario"
+    - "check"
+    - "codigo"
+    - "cohete"
+    - "comilla"
+    - "cubo"
+    - "diana"
+    - "globo"
+    - "info"
+    - "lapiz"
+    - "mano"
+    - "megafono"
+    - "microfono"
+    - "monitor"
+    - "persona"
+    - "persona-estrella"
+    - "personas"
+    - "planta"
+    - "portapapeles"
+    - "qr"
+    - "rayo"
+    - "rejilla"
+graficos:
+  _que_es: "Los 3 gráficos de la p.3 de la referencia. Un gráfico del sistema NO inventa datos: recibe pares (etiqueta, valor) y si un valor viene a None sale marcado como [TBD], igual que cualquier otro dato sin confirmar."
+  _regla_dura: "El eje de las barras EMPIEZA EN CERO. Un eje truncado exagera la diferencia y es la forma más fácil de publicar un gráfico que miente sin decir una sola cifra falsa."
+  barras:
+    _origen: "p.3 — «CANDIDATURAS», dos barras comparadas."
+    ancho_barra: 0.34
+    gap: 0.16
+    eje_grosor: 0.006
+    zona_barras: 0.72
+    valor_alto: 0.115
+    etiqueta_alto: 0.072
+    radio: 0.03
+  dona:
+    _origen: "p.3 — «PROYECTOS POR EDICIÓN», dona bicolor."
+    grosor: 0.22
+    radio: 0.42
+    leyenda_alto: 0.075
+    leyenda_punto: 0.055
+    gap_leyenda: 0.055
+  mapa:
+    _origen: "vectorizado con potrace desde `_fuente/referencia-revista/assets/P4F_03_mapa_oscuro.jpg`, que es el asset que entregó Piero. NO se dibujó a mano: un mapa inventado sale publicado con la geografía mal."
+    archivo: "patrones/p4f-mapa-latam.svg"
+    viewbox:
+      - 736
+      - 828
+    pin_radio: 0.028
+    pin_alto: 0.075
+    etiqueta_alto: 0.055
+    _pin_nota: "Los pines van en coordenadas RELATIVAS al viewBox (0-1), no en lat/lon: el mapa es un trazo de referencia, no una proyección declarada, y fingir que acepta coordenadas geográficas sería mentir sobre su precisión."
